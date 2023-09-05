@@ -1,0 +1,15 @@
+{
+  "name": "appone",
+  "version": "1.0.0",
+  "description": "Application for learning purposes",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "P. Bokolo",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^26.1.0"
+  }
+}
