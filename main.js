@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
 const createWindow = () => {
@@ -13,10 +13,14 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
+  ipcMain.handle("ping", () => `${Date.now()}`);
   createWindow();
   app.on("activate", () => {
     // Opens the window if none are open(macos)
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    if (BrowserWindow.getAllWindows().length === 0) {
+      ipcMain.handle("ping", () => `${Date.now()}`);
+      createWindow();
+    }
   });
 });
 
